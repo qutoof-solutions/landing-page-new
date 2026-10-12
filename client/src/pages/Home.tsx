@@ -625,13 +625,13 @@ export default function Home() {
     <div className={`store-page store-theme-${activeStoreTheme.id} min-h-screen font-sans pb-28`} style={{ background: "var(--color-bg)", color: "var(--color-text, #111827)" }} dir="rtl">
       {/* 1. الشريط العلوي */}
       {config.showTopBar && (
-        <div className="text-xs font-black py-2.5 text-center px-4 transition text-white" style={{ background: "var(--color-primary)" }}>
+        <div className="premium-topbar text-xs font-black py-2.5 text-center px-4 transition text-white" style={{ background: "var(--color-primary)" }}>
           {config.topBarText}
         </div>
       )}
 
       {/* 2. ترويسة المتجر */}
-      <header className="border-b sticky top-0 z-40 px-4 py-3 backdrop-blur shadow-sm" style={{ borderColor: "var(--color-border)", background: "var(--color-card, #FFFFFF)" }}>
+      <header className="premium-header border-b sticky top-0 z-40 px-4 py-3 backdrop-blur shadow-sm" style={{ borderColor: "var(--color-border)", background: "var(--color-card, #FFFFFF)" }}>
         <div className="max-w-2xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-2">
             {config.logoUrl && <img src={config.logoUrl} alt="Logo" className="h-7 w-auto object-contain" />}
@@ -1141,7 +1141,7 @@ export default function Home() {
 
       {/* 16. الزر العائم السفلي */}
       {config.showStickyButton && !isFormInView && (
-        <div className="fixed bottom-0 left-0 right-0 p-3 backdrop-blur border-t z-40 max-w-2xl mx-auto flex items-center justify-between gap-3 shadow-lg transition-all duration-300 animate-fade-in" style={{ background: "var(--color-card)", borderColor: "var(--color-border)" }}>
+        <div className="premium-sticky-cta fixed bottom-0 left-0 right-0 p-3 backdrop-blur border-t z-40 max-w-2xl mx-auto flex items-center justify-between gap-3 shadow-lg transition-all duration-300 animate-fade-in" style={{ background: "var(--color-card)", borderColor: "var(--color-border)" }}>
           <div>
             <span className="text-[10px] opacity-70 block" style={{ color: "var(--color-text, #111827)" }}>الإجمالي:</span>
             <span className="text-base font-black font-mono" style={{ color: "var(--color-primary)" }}>{grandTotal} {activeCountry?.currency}</span>
