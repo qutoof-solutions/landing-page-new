@@ -643,9 +643,9 @@ export default function Home() {
         </div>
       </header>
 
-      <main className="max-w-2xl mx-auto p-4 space-y-6">
+      <main className="premium-main max-w-2xl mx-auto p-4 space-y-6">
         {/* 3. معرض الصور الرئيسي */}
-        <div className="space-y-3">
+        <div className="premium-gallery space-y-3">
           <div className="aspect-square rounded-3xl overflow-hidden relative shadow-xl" style={{ background: "var(--color-card)", border: "1px solid var(--color-border)", borderRadius: "var(--border-radius)" }}>
             <img src={selectedImage || config.productImage} alt={config.productTitle} className="w-full h-full object-cover" />
             {config.showBadge && (
@@ -679,7 +679,7 @@ export default function Home() {
 
         {/* 4. العداد وشريط المخزون */}
         {(config.showTimer || config.showStockBar) && (
-          <div className="grid grid-cols-2 gap-3 p-3.5 rounded-2xl shadow-sm" style={{ background: "var(--color-card)", border: "1px solid var(--color-border)" }}>
+          <div className="premium-offer-bar grid grid-cols-2 gap-3 p-3.5 rounded-2xl shadow-sm" style={{ background: "var(--color-card)", border: "1px solid var(--color-border)" }}>
             {config.showTimer && (
               <div className="text-center border-l pl-2" style={{ borderColor: "var(--color-border)" }}>
                 <span className="text-[10px] opacity-70 block font-bold" style={{ color: "var(--color-text, #111827)" }}>ينتهي العرض المؤقت خلال</span>
@@ -698,7 +698,7 @@ export default function Home() {
         )}
 
         {/* 5. تفاصيل السعر والاسم وعداد الكمية */}
-        <div className="space-y-3">
+        <div className="premium-product-head space-y-3">
           <h1 
             style={{ 
               color: "var(--color-text, #111827)", 
@@ -750,7 +750,7 @@ export default function Home() {
         </div>
 
         {/* شارات الثقة السريعة */}
-        <div className="grid grid-cols-3 gap-2 py-2.5 border-y text-center text-[10px] sm:text-xs font-bold" style={{ borderColor: "var(--color-border)", color: "var(--color-text, #111827)" }}>
+        <div className="premium-trust grid grid-cols-3 gap-2 py-2.5 border-y text-center text-[10px] sm:text-xs font-bold" style={{ borderColor: "var(--color-border)", color: "var(--color-text, #111827)" }}>
           <div className="flex flex-col items-center gap-1 opacity-90">
             <span>🔍 معاينة قبل الدفع</span>
           </div>
@@ -764,7 +764,7 @@ export default function Home() {
 
         {/* 6. باقات التوفير */}
         {activeBundles.length > 0 && (
-          <div className="space-y-2">
+          <div className="premium-bundles space-y-2">
             <label className="text-xs font-bold opacity-80" style={{ color: "var(--color-text, #111827)" }}>اختر العرض الأنسب لك:</label>
             <div className="space-y-2">
               {activeBundles.map((b) => {
@@ -799,7 +799,7 @@ export default function Home() {
 
         {/* 7. المقاسات والألوان */}
         {(enableSizes || enableColors) && (
-          <div className="p-4 rounded-2xl space-y-4 shadow-sm" style={{ background: "var(--color-card)", border: "1px solid var(--color-border)" }}>
+          <div className="premium-options p-4 rounded-2xl space-y-4 shadow-sm" style={{ background: "var(--color-card)", border: "1px solid var(--color-border)" }}>
             <div className="flex justify-between items-center border-b pb-2" style={{ borderColor: "var(--color-border)" }}>
               <label className="text-xs font-black" style={{ color: "var(--color-primary)" }}>
                 {selectedQty > 1 ? `حدد خيارات كل قطعة مطلوبة (${selectedQty} قطع):` : "حدد المقاس واللون:"}
@@ -885,7 +885,7 @@ export default function Home() {
 
         {/* 8. الفيديو المدمج */}
         {config.videoUrl && config.videoUrl.trim() !== "" && (
-          <div className="p-4 rounded-2xl space-y-3 shadow-sm" style={{ background: "var(--color-card)", border: "1px solid var(--color-border)" }}>
+          <div className="premium-video p-4 rounded-2xl space-y-3 shadow-sm" style={{ background: "var(--color-card)", border: "1px solid var(--color-border)" }}>
             <h3 className="text-xs font-bold flex items-center gap-2" style={{ color: "var(--color-primary)" }}>
               <span>🎥</span> فيديو توضيحي واستعراض تفاصيل المنتج:
             </h3>
@@ -895,7 +895,7 @@ export default function Home() {
 
         {/* 9. معرض الصور التفصيلي */}
         {config.gallery && config.gallery.length > 0 && (
-          <div className="space-y-4">
+          <div className="premium-detail-gallery space-y-4">
             <div className="text-center space-y-1 pt-2">
               <h3 className="text-sm font-black" style={{ color: "var(--color-primary)" }}>
                 تفاصيل ومميزات المنتج بالصور
@@ -929,7 +929,7 @@ export default function Home() {
 
         {/* 10. مميزات ومواصفات المنتج */}
         {config.features && config.features.length > 0 && (
-          <div className="p-4 rounded-2xl space-y-2.5 shadow-sm" style={{ background: "var(--color-card)", border: "1px solid var(--color-border)" }}>
+          <div className="premium-features p-4 rounded-2xl space-y-2.5 shadow-sm" style={{ background: "var(--color-card)", border: "1px solid var(--color-border)" }}>
             <h3 className="text-xs font-bold" style={{ color: "var(--color-primary)" }}>مميزات ومواصفات المنتج:</h3>
             <ul className="space-y-2 text-xs opacity-95 list-none pr-1" style={{ color: "var(--color-text, #111827)" }}>
               {config.features.map((feat, idx) => (
@@ -944,7 +944,7 @@ export default function Home() {
 
         {/* 11. آراء وتقييمات العملاء */}
         {config.showReviews && config.reviews && config.reviews.length > 0 && (
-          <div className="p-4 rounded-2xl space-y-3 shadow-sm" style={{ background: "var(--color-card)", border: "1px solid var(--color-border)" }}>
+          <div className="premium-reviews p-4 rounded-2xl space-y-3 shadow-sm" style={{ background: "var(--color-card)", border: "1px solid var(--color-border)" }}>
             <h3 className="text-xs font-bold" style={{ color: "var(--color-primary)" }}>آراء وتقييمات العملاء:</h3>
             <div className="space-y-2.5">
               {config.reviews.map((rev, idx) => (
@@ -964,7 +964,7 @@ export default function Home() {
         <div 
           ref={formRef}
           id="order-form" 
-          className="p-5 rounded-3xl space-y-4 shadow-xl" 
+          className="premium-checkout p-5 rounded-3xl space-y-4 shadow-xl"
           style={{ background: "var(--color-card)", border: "1px solid var(--color-border)" }}
         >
           <div className="border-b pb-3" style={{ borderColor: "var(--color-border)" }}>
@@ -1107,7 +1107,7 @@ export default function Home() {
 
         {/* 13. صندوق الضمان والمعاينة */}
         {config.showGuarantee && (
-          <div className="p-4 rounded-2xl text-center space-y-1 shadow-sm" style={{ background: "rgba(5, 150, 105, 0.1)", border: "1px solid rgba(5, 150, 105, 0.3)" }}>
+          <div className="premium-guarantee p-4 rounded-2xl text-center space-y-1 shadow-sm" style={{ background: "rgba(5, 150, 105, 0.1)", border: "1px solid rgba(5, 150, 105, 0.3)" }}>
             <h4 className="text-xs font-bold text-emerald-600">{config.guaranteeText}</h4>
             {config.guaranteeSubtext && <p className="text-[11px] opacity-80" style={{ color: "var(--color-text, #111827)" }}>{config.guaranteeSubtext}</p>}
           </div>
